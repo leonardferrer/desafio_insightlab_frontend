@@ -34,6 +34,7 @@ function SupplierDetails() {
         setIsSaveButtonDisabled(false);
     };
 
+
     const handleEdit = () => {
         setIsEditing(true);
     };
@@ -87,6 +88,7 @@ function SupplierDetails() {
                         value={editedSupplier.fantasyName}
                         onChange={handleChange}
                         readOnly={!isEditing}
+                        required
                     />
                 </div>
                 <div className="form-group">
@@ -98,6 +100,7 @@ function SupplierDetails() {
                         value={editedSupplier.corporateReason}
                         onChange={handleChange}
                         readOnly={!isEditing}
+                        required
                     />
                 </div>
                 <div className="form-group">
@@ -109,6 +112,7 @@ function SupplierDetails() {
                         value={editedSupplier.cnpj}
                         onChange={handleChange}
                         readOnly={!isEditing}
+                        required
                     />
                 </div>
                 <div className="form-group">
@@ -120,6 +124,7 @@ function SupplierDetails() {
                         value={editedSupplier.address}
                         onChange={handleChange}
                         readOnly={!isEditing}
+                        required
                     />
                 </div>
                 <div className="buttons">

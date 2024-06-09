@@ -22,7 +22,7 @@ function SearchField({ searchTerm, setSearchTerm, handleSearch }) {
                 value={searchTerm}
                 onChange={(e) => setSearchTerm(e.target.value)}
                 onKeyDown={handleKeyDown}
-                placeholder="Digite sua pesquisa" className="search-input"
+                placeholder="Digite a razao social" className="search-input"
             />
             <button onClick={handleSearch}  className="search-button">Pesquisar</button>
             <button onClick={handleAddSupplier} className="filter-button">Cadastrar</button>

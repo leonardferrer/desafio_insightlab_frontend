@@ -14,7 +14,7 @@ function AddSupplier() {
     const navigate = useNavigate();
 
     const handleChange = (e) => {
-        // Validar o campo CNPJ para conter apenas números e ter 14 caracteres
+
         if (e.target.name === 'cnpj') {
             const value = e.target.value.replace(/\D/g, ''); // Remove todos os caracteres não numéricos
             if (value.length <= 14) {
