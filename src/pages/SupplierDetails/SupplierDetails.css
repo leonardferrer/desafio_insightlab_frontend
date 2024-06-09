@@ -1,0 +1,71 @@
+.supplier-details-container {
+    width: 75%;
+    margin: 0 auto;
+    margin-top: 20px;
+}
+
+h2 {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+}
+
+.form-group {
+    margin-bottom: 10px;
+}
+
+label {
+    font-size: 16px;
+    margin-bottom: 5px;
+}
+
+input {
+    font-size: 16px;
+    padding: 8px;
+    width: 100%;
+}
+
+.buttons {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+}
+
+button {
+    font-size: 16px;
+    padding: 12px; /* Aumentar o padding para maior altura */
+    border: none;
+    cursor: pointer;
+    flex-grow: 1; /* Permitir que o botão cresça para ocupar o espaço disponível */
+    margin: 0 5px; /* Adicionar margem entre os botões */
+    text-align: center;
+}
+
+.edit-button {
+    background-color: #4CAF50;
+    color: white;
+}
+
+.cancel-button {
+    background-color: #f44336;
+    color: white;
+}
+
+.save-button {
+    background-color: #008CBA;
+    color: white;
+}
+
+.save-button:disabled {
+    background-color: #cccccc;
+    cursor: not-allowed;
+}
+
+.delete-button {
+    background-color: #f44336;
+    color: white;
+}

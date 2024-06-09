@@ -35,7 +35,6 @@ function AddSupplier() {
 
     const handleSubmit = async (e) => {
         e.preventDefault();
-        // Verificar se todos os campos estão preenchidos
         if (Object.values(form).every(value => value !== '') && form.cnpj.length === 14) {
             try {
                 await SupplierService.create(form);
