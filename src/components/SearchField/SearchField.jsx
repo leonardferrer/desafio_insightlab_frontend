@@ -9,6 +9,7 @@ function SearchField({ searchTerm, setSearchTerm, handleSearch }) {
         navigate('/add');
     };
 
+
     return (
         <div className="search-container">
             <input
