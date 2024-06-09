@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import SupplierService from '../../services/SupplierService.js';
 import { useNavigate } from 'react-router-dom';
+import './AddSupplier.css'; // Importe o arquivo CSS
 
 function AddSupplier() {
     const [form, setForm] = useState({
@@ -32,10 +33,10 @@ function AddSupplier() {
     };
 
     return (
-        <div style={{ width: '75%', margin: '0 auto', marginTop: '20px' }}>
+        <div className="form-container">
             <h2>Cadastrar Fornecedor</h2>
             <form onSubmit={handleSubmit}>
-                <div style={{ marginBottom: '10px' }}>
+                <div className="input-field">
                     <label>Nome Fantasia:</label>
                     <input
                         type="text"
@@ -43,45 +44,10 @@ function AddSupplier() {
                         value={form.fantasyName}
                         onChange={handleChange}
                         required
-                        style={{ fontSize: '16px', padding: '8px', width: '100%' }}
                     />
                 </div>
-                <div style={{ marginBottom: '10px' }}>
-                    <label>Razão Social:</label>
-                    <input
-                        type="text"
-                        name="corporateReason"
-                        value={form.corporateReason}
-                        onChange={handleChange}
-                        required
-                        style={{ fontSize: '16px', padding: '8px', width: '100%' }}
-                    />
-                </div>
-                <div style={{ marginBottom: '10px' }}>
-                    <label>CNPJ:</label>
-                    <input
-                        type="text"
-                        name="cnpj"
-                        value={form.cnpj}
-                        onChange={handleChange}
-                        required
-                        style={{ fontSize: '16px', padding: '8px', width: '100%' }}
-                    />
-                </div>
-                <div style={{ marginBottom: '10px' }}>
-                    <label>Endereço:</label>
-                    <input
-                        type="text"
-                        name="address"
-                        value={form.address}
-                        onChange={handleChange}
-                        required
-                        style={{ fontSize: '16px', padding: '8px', width: '100%' }}
-                    />
-                </div>
-                <button type="submit" style={{ fontSize: '16px', padding: '8px', marginTop: '10px' }}>
-                    Cadastrar
-                </button>
+                {/* Outros campos de input */}
+                <button type="submit" className="submit-button">Cadastrar</button>
             </form>
         </div>
     );
