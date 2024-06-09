@@ -9,6 +9,11 @@ function SearchField({ searchTerm, setSearchTerm, handleSearch }) {
         navigate('/add');
     };
 
+    const handleKeyDown = (e) => {
+        if (e.key === 'Enter') {
+            handleSearch();
+        }
+    };
 
     return (
         <div className="search-container">
@@ -16,6 +21,7 @@ function SearchField({ searchTerm, setSearchTerm, handleSearch }) {
                 type="text"
                 value={searchTerm}
                 onChange={(e) => setSearchTerm(e.target.value)}
+                onKeyDown={handleKeyDown}
                 placeholder="Digite sua pesquisa" className="search-input"
             />
             <button onClick={handleSearch}  className="search-button">Pesquisar</button>
