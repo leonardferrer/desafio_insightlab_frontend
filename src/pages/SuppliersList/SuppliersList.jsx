@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import SupplierService from "../../services/SupplierService.js";
 import SearchField from "../../components/SearchField/SearchField.jsx";
+import {Link} from "react-router-dom";
 
 function SupplierList() {
     const [suppliers, setSuppliers] = useState([]);
@@ -21,7 +22,6 @@ function SupplierList() {
 
     const handleSearch = async () => {
         try {
-            // const data = await SupplierService.getOne(searchTerm);
             const data = await SupplierService.searchByName(searchTerm);
             console.log(data);
             setSuppliers(data);
@@ -52,9 +52,13 @@ function SupplierList() {
                         <td style={{ border: '1px solid black', padding: '8px' }}>{supplier.idSupplier}</td>
                         <td style={{ border: '1px solid black', padding: '8px' }}>{supplier.corporateReason}</td>
                         <td style={{ border: '1px solid black', padding: '8px' }}>
-                            <a href={supplier.links[0].href} style={{ textDecoration: 'none', color: 'blue' }}>
+                            {/*<a href={supplier.links[0].href} style={{ textDecoration: 'none', color: 'blue' }}>
                                 Ver detalhes
-                            </a>
+                            </a>*/}
+                            {/* Link para os detalhes do fornecedor */}
+                            <Link to={`/details/${supplier.idSupplier}`} style={{ textDecoration: 'none', color: 'blue' }}>
+                                Ver detalhes
+                            </Link>
                         </td>
                     </tr>
                 ))}
@@ -65,58 +69,3 @@ function SupplierList() {
 }
 
 export default SupplierList;
-
-
-/*
-import './SupplierList.css';
-import { useState, useEffect } from 'react';
-import SupplierService from "../../services/SupplierService.js";
-import SearchField from "../../components/SearchField/SearchField.jsx";
-
-function SupplierList() {
-    const [suppliers, setSuppliers] = useState([]);
-    const [searchTerm, setSearchTerm] = useState("");
-
-    useEffect(() => {
-        const fetchSuppliers = async () => {
-            try {
-                const data = await SupplierService.getAll();
-                setSuppliers(data);
-            } catch (error) {
-                console.error('Erro ao buscar fornecedores:', error.message);
-            }
-        };
-
-        fetchSuppliers();
-    }, []);
-
-    return (
-        <div className="table-container">
-            <SearchField />
-            <h1>Fornecedores</h1>
-            <table className="table">
-                <thead>
-                <tr>
-                    <th>COD. FORNECEDOR</th>
-                    <th>NOME</th>
-                    <th>AÇÕES</th>
-                </tr>
-                </thead>
-                <tbody>
-                {suppliers.map(supplier => (
-                    <tr key={supplier.idSupplier}>
-                        <td>{supplier.idSupplier}</td>
-                        <td>{supplier.corporateReason}</td>
-                        <td>
-                            <a href={supplier.links[0].href}>Ver detalhes</a>
-                        </td>
-                    </tr>
-                ))}
-                </tbody>
-            </table>
-        </div>
-    );
-}
-
-export default SupplierList;
-*/
