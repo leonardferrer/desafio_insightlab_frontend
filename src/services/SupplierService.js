@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-const API_URL = 'http://localhost:8080'; // Coloque aqui o URL base da sua API
+const API_URL = 'https://desafio-insightla.onrender.com';
 
 const SupplierService = {
     getAll: async () => {
