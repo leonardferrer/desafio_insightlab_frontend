@@ -37,26 +37,28 @@ input {
 
 button {
     font-size: 16px;
-    padding: 12px; /* Aumentar o padding para maior altura */
+    padding: 12px;
     border: none;
     cursor: pointer;
-    flex-grow: 1; /* Permitir que o botão cresça para ocupar o espaço disponível */
-    margin: 0 5px; /* Adicionar margem entre os botões */
+    flex-grow: 1;
+    margin: 0 5px;
     text-align: center;
 }
 
 .edit-button {
     background-color: #4CAF50;
+    width: 50%;
     color: white;
 }
 
 .cancel-button {
-    background-color: #f44336;
+    background-color: #363ff4;
+    width: 50%;
     color: white;
 }
 
 .save-button {
-    background-color: #008CBA;
+    background-color: #227e26;
     color: white;
 }
 

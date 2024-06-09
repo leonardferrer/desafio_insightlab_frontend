@@ -2,7 +2,8 @@ import { useState, useEffect } from 'react';
 import SupplierService from "../../services/SupplierService.js";
 import SearchField from "../../components/SearchField/SearchField.jsx";
 import CustomModal from "../../components/CustomModal/CustomModal.jsx";
-import {Link} from "react-router-dom";
+import { Link } from "react-router-dom";
+import './SuppliersList.css';
 
 function SupplierList() {
     const [suppliers, setSuppliers] = useState([]);
@@ -52,34 +53,33 @@ function SupplierList() {
     };
 
     return (
-        <div style={{ width: '75%', margin: '0 auto' }}>
+        <div className="container">
             <SearchField
                 searchTerm={searchTerm}
                 setSearchTerm={setSearchTerm}
                 handleSearch={handleSearch}
             />
-            <h1 style={{ textAlign: 'center' }}>Fornecedores</h1>
-            <table style={{ width: '100%', borderCollapse: 'collapse' }}>
+            <h1>Fornecedores</h1>
+            <table>
                 <thead>
                 <tr>
-                    <th style={{ border: '1px solid black', padding: '8px' }}>NOME</th>
-                    <th style={{ border: '1px solid black', padding: '8px' }}>RAZÃO SOCIAL</th>
-                    <th style={{ border: '1px solid black', padding: '8px' }}>AÇÕES</th>
+                    <th>NOME</th>
+                    <th>RAZÃO SOCIAL</th>
+                    <th colSpan="2" className="actions-cell" >AÇÕES</th>
                 </tr>
                 </thead>
                 <tbody>
                 {suppliers.map(supplier => (
                     <tr key={supplier.idSupplier}>
-                        <td style={{border: '1px solid black', padding: '8px'}}>{supplier.fantasyName}</td>
-                        <td style={{border: '1px solid black', padding: '8px'}}>{supplier.corporateReason}</td>
-                        <td style={{border: '1px solid black', padding: '8px'}}>
-                            <Link to={`/details/${supplier.idSupplier}`}
-                                  style={{textDecoration: 'none', color: 'blue'}}>
+                        <td>{supplier.fantasyName}</td>
+                        <td>{supplier.corporateReason}</td>
+                        <td>
+                            <Link to={`/details/${supplier.idSupplier}`} className="link">
                                 Ver detalhes
                             </Link>
                         </td>
-                        <td style={{border: '1px solid black', padding: '8px'}}>
-                            <button onClick={() => handleDelete(supplier.idSupplier)}>Excluir</button>
+                        <td>
+                            <button className="delete-button" onClick={() => handleDelete(supplier.idSupplier)}>Excluir</button>
                         </td>
                     </tr>
                 ))}
@@ -91,74 +91,3 @@ function SupplierList() {
 }
 
 export default SupplierList;
-
-/*
-import { useState, useEffect } from 'react';
-import SupplierService from "../../services/SupplierService.js";
-import SearchField from "../../components/SearchField/SearchField.jsx";
-import {Link} from "react-router-dom";
-import error from "eslint-plugin-react/lib/util/error.js";
-
-function SupplierList() {
-    const [suppliers, setSuppliers] = useState([]);
-    const [searchTerm, setSearchTerm] = useState("");
-
-    useEffect(() => {
-        const fetchSuppliers = async () => {
-            try {
-                const data = await SupplierService.getAll();
-                setSuppliers(data);
-            } catch (error) {
-                console.error('Erro ao buscar fornecedores:', error.message);
-            }
-        };
-
-        fetchSuppliers();
-    }, []);
-
-    const handleSearch = async () => {
-        try {
-            const data = await SupplierService.searchByName(searchTerm);
-            setSuppliers(data);
-            alert('dcd');
-        } catch (error) {
-            console.error('Erro ao buscar fornecedores:', error.message);
-        }
-    };
-
-    return (
-        <div style={{ width: '75%', margin: '0 auto' }}>
-            <SearchField
-                searchTerm={searchTerm}
-                setSearchTerm={setSearchTerm}
-                handleSearch={handleSearch}
-            />
-            <h1 style={{ textAlign: 'center' }}>Fornecedores</h1>
-            <table style={{ width: '100%', borderCollapse: 'collapse' }}>
-                <thead>
-                <tr>
-                    <th style={{ border: '1px solid black', padding: '8px' }}>COD. FORNECEDOR</th>
-                    <th style={{ border: '1px solid black', padding: '8px' }}>NOME</th>
-                    <th style={{ border: '1px solid black', padding: '8px' }}>AÇÕES</th>
-                </tr>
-                </thead>
-                <tbody>
-                {suppliers.map(supplier => (
-                    <tr key={supplier.idSupplier}>
-                        <td style={{ border: '1px solid black', padding: '8px' }}>{supplier.idSupplier}</td>
-                        <td style={{ border: '1px solid black', padding: '8px' }}>{supplier.corporateReason}</td>
-                        <td style={{ border: '1px solid black', padding: '8px' }}>
-                            <Link to={`/details/${supplier.idSupplier}`} style={{ textDecoration: 'none', color: 'blue' }}>
-                                Ver detalhes
-                            </Link>
-                        </td>
-                    </tr>
-                ))}
-                </tbody>
-            </table>
-        </div>
-    );
-}
-
-export default SupplierList;
-*/

@@ -1,18 +1,52 @@
-.form-container {
+.container {
     width: 75%;
     margin: 0 auto;
     margin-top: 20px;
 }
 
-.input-field {
-    font-size: 16px;
-    padding: 8px;
-    width: 100%;
+h2 {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+}
+
+.form-group {
     margin-bottom: 10px;
 }
 
-.submit-button {
+label {
+    font-size: 16px;
+    margin-bottom: 5px;
+}
+
+input {
+    font-size: 16px;
+    padding: 8px;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+button {
     font-size: 16px;
     padding: 8px;
     margin-top: 10px;
+    cursor: pointer;
+    background-color: #38913c;
+    color: white;
+    border: none;
+    border-radius: 4px;
+}
+
+button:hover {
+    background-color: #01bf08;
+}
+
+.error-message {
+    color: red;
+    font-size: 14px;
+    margin-top: 5px;
 }

@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import SupplierService from '../../services/SupplierService.js';
 import { useNavigate } from 'react-router-dom';
+import './AddSupplier.css';
 
 function AddSupplier() {
     const [form, setForm] = useState({
@@ -50,10 +51,10 @@ function AddSupplier() {
     };
 
     return (
-        <div style={{ width: '75%', margin: '0 auto', marginTop: '20px' }}>
+        <div className="container">
             <h2>Cadastrar Fornecedor</h2>
             <form onSubmit={handleSubmit}>
-                <div style={{ marginBottom: '10px' }}>
+                <div className="form-group">
                     <label>Nome Fantasia:</label>
                     <input
                         type="text"
@@ -61,10 +62,9 @@ function AddSupplier() {
                         value={form.fantasyName}
                         onChange={handleChange}
                         required
-                        style={{ fontSize: '16px', padding: '8px', width: '100%' }}
                     />
                 </div>
-                <div style={{ marginBottom: '10px' }}>
+                <div className="form-group">
                     <label>Razão Social:</label>
                     <input
                         type="text"
@@ -72,10 +72,9 @@ function AddSupplier() {
                         value={form.corporateReason}
                         onChange={handleChange}
                         required
-                        style={{ fontSize: '16px', padding: '8px', width: '100%' }}
                     />
                 </div>
-                <div style={{ marginBottom: '10px' }}>
+                <div className="form-group">
                     <label>CNPJ:</label>
                     <input
                         type="text"
@@ -83,13 +82,12 @@ function AddSupplier() {
                         value={form.cnpj}
                         onChange={handleChange}
                         required
-                        style={{ fontSize: '16px', padding: '8px', width: '100%' }}
-                        pattern="\d{14}" // Adiciona o padrão para 14 dígitos numéricos
+                        pattern="\d{14}"
                         title="Por favor, insira um CNPJ válido com 14 dígitos."
                     />
-                    {cnpjError && <span style={{ color: 'red' }}>{cnpjError}</span>}
+                    {cnpjError && <span className="error-message">{cnpjError}</span>}
                 </div>
-                <div style={{ marginBottom: '10px' }}>
+                <div className="form-group">
                     <label>Endereço:</label>
                     <input
                         type="text"
@@ -97,10 +95,9 @@ function AddSupplier() {
                         value={form.address}
                         onChange={handleChange}
                         required
-                        style={{ fontSize: '16px', padding: '8px', width: '100%' }}
                     />
                 </div>
-                <button type="submit" style={{ fontSize: '16px', padding: '8px', marginTop: '10px' }}>
+                <button type="submit">
                     Cadastrar
                 </button>
             </form>
