@@ -1,0 +1,31 @@
+.search-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 2rem;
+}
+
+.search-input {
+    font-size: 20px; /* Tamanho da fonte */
+    width: 40%; /* Largura do campo de entrada */
+}
+
+.search-button, .filter-button {
+    font-size: 16px; /* Tamanho da fonte */
+    padding: 8px 16px; /* Espaçamento interno */
+    border: none; /* Remover borda */
+    border-radius: 4px; /* Adicionar borda arredondada */
+    cursor: pointer; /* Alterar cursor para indicar clicabilidade */
+}
+
+.search-button {
+    background-color: #4CAF50; /* Cor de fundo para o botão de pesquisa */
+    color: white; /* Cor do texto do botão de pesquisa */
+    margin-left: 10px;
+    margin-right: 10px;
+}
+
+.filter-button {
+    background-color: #008CBA; /* Cor de fundo para o botão de filtro */
+    color: white; /* Cor do texto do botão de filtro */
+}
