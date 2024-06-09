@@ -36,9 +36,9 @@ function SupplierList() {
 
     const handleDelete = async (id) => {
         try {
-           /* await SupplierService.delete(id);
+            await SupplierService.delete(id);
             const updatedSuppliers = suppliers.filter(supplier => supplier.idSupplier !== id);
-            setSuppliers(updatedSuppliers);*/
+            setSuppliers(updatedSuppliers);
             setModalMessage('Fornecedor excluído com sucesso!');
             setModalIsOpen(true);
         } catch (error) {
@@ -62,15 +62,15 @@ function SupplierList() {
             <table style={{ width: '100%', borderCollapse: 'collapse' }}>
                 <thead>
                 <tr>
-                    <th style={{ border: '1px solid black', padding: '8px' }}>COD. FORNECEDOR</th>
                     <th style={{ border: '1px solid black', padding: '8px' }}>NOME</th>
+                    <th style={{ border: '1px solid black', padding: '8px' }}>RAZÃO SOCIAL</th>
                     <th style={{ border: '1px solid black', padding: '8px' }}>AÇÕES</th>
                 </tr>
                 </thead>
                 <tbody>
                 {suppliers.map(supplier => (
                     <tr key={supplier.idSupplier}>
-                        <td style={{border: '1px solid black', padding: '8px'}}>{supplier.idSupplier}</td>
+                        <td style={{border: '1px solid black', padding: '8px'}}>{supplier.fantasyName}</td>
                         <td style={{border: '1px solid black', padding: '8px'}}>{supplier.corporateReason}</td>
                         <td style={{border: '1px solid black', padding: '8px'}}>
                             <Link to={`/details/${supplier.idSupplier}`}
